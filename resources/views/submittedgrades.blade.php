@@ -4,24 +4,27 @@
     body {
         background-color: #f7f9fc; /* Light background for better contrast */
         font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
     }
 
     #main {
-        padding: 20px;
+        padding: 0px;
     }
 
-    .w3-teal {
-        background-color: #007bff; /* Teal background */
-        padding: 10px;
-        border-radius: 0.5rem;
-        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+    .header-container {
+        display: flex; 
+        align-items: center; 
+        background-color: #0c3b6d; 
+        color: white;
+        padding: 15px; 
         margin-bottom: 20px;
     }
 
     h1 {
         color: white;
         margin: 0;
-        font-size: 2.5rem;
+        font-size: 2.5rem; /* Adjusted for consistency */
     }
 
     .container {
@@ -58,11 +61,13 @@
     .btn-primary {
         background-color: #007bff;
         border-color: #007bff;
+        color: white;
     }
 
     .btn-info {
         background-color: #17a2b8;
         border-color: #17a2b8;
+        color: white;
     }
 
     .toggle-switch {
@@ -144,8 +149,8 @@
 </style>
 
 <div id="main">
-    <div class="w3-teal">
-        <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+    <div class="header-container">
+        <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
         <h1 style="text-align: center;">Evaluate Grades</h1>
     </div>
 

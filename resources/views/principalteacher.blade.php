@@ -3,7 +3,33 @@
 
 <style>
     body {
-        background-color: #f8f9fa;
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa; /* Light background */
+        margin: 0;
+        padding: 0;
+    }
+
+    .header-container {
+        display: flex; 
+        align-items: center; 
+        background-color: #0c3b6d; 
+        color: white;
+        padding: 15px; 
+    }
+
+    h1 {
+        margin: 0; 
+        font-size: 20px;
+    }
+
+    .w3-sidebar {
+        background-color: #0c3b6d; 
+        color: white;
+        width: 250px; /* Fixed width for sidebar */
+        position: fixed; /* Fixed position */
+        height: 100%; /* Full height */
+        padding-top: 20px; /* Space at the top */
+        display: none; /* Initially hidden */
     }
 
     .form-container {
@@ -13,10 +39,7 @@
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         max-width: 600px; /* Set a max width for the form */
         margin: auto; /* Center the form */
-    }
-
-    h1 {
-        margin-bottom: 1.5rem;
+        margin-top: 20px; /* Space from the top */
     }
 
     .form-group {
@@ -29,10 +52,10 @@
 
     .subjects {
         margin-top: 10px;
-        display: none;
         border: 1px solid #ddd; /* Add a border around subject lists */
         padding: 10px;
         border-radius: 5px;
+        display: none; /* Initially hidden */
     }
 
     .checkbox-group div {
@@ -43,18 +66,25 @@
         margin-top: 1.5rem; /* Space above the button */
     }
 
-    .btn {
+    .btn-primary {
+        background-color: #17a2b8;
+        border: none;
+        color: white;
+        padding: 10px;
+        border-radius: 4px;
+        transition: background-color 0.3s;
         width: 100%; /* Make the button full width */
-        padding: 10px; /* Increase button padding */
+    }
+
+    .btn-primary:hover {
+        background-color: #138496;
     }
 </style>
 
 <div id="main">
-    <div class="w3-teal">
-        <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
-        <div class="w3-container">
-            <h1>TEACHERS AND SUBJECTS</h1>
-        </div>
+    <div class="header-container">
+        <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
+        <h1>TEACHERS AND SUBJECTS</h1>
     </div>
     <br>
     <div class="container d-flex justify-content-center align-items-start" style="min-height: 80vh;">
@@ -110,7 +140,6 @@
                     @endforeach
                 </div>
             
-                <!-- Hidden input to hold the concatenated subjects -->
                 <input type="hidden" name="concatenated_subjects" id="concatenated_subjects">
             
                 <div class="text-center">
@@ -124,24 +153,21 @@
                     const selectedSubjects = Array.from(checkboxes).map(cb => cb.value);
                     const concatenatedSubjects = selectedSubjects.join(', ');
                     document.getElementById('concatenated_subjects').value = concatenatedSubjects;
-
-                    // Log the value for debugging purposes
                     console.log('Concatenated Subjects:', concatenatedSubjects);
-                    
                     toastr.success('Teacher assigned successfully.');
                 };
-            
-                // Function to show subjects based on the selected grade
+
                 function showSubjects(grade) {
-                    // Hide all subject lists
                     document.querySelectorAll('.subjects').forEach(subjectList => {
                         subjectList.style.display = 'none';
                     });
-                    // Show the selected grade's subjects
                     if (grade) {
                         document.getElementById(grade.toLowerCase().replace(' ', '-')).style.display = 'block';
                     }
                 }
             </script>
+        </div>
+    </div>
+</div>
 
 @include('templates.principalfooter')

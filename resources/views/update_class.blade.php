@@ -1,6 +1,46 @@
 @include('templates.principalheader')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
 <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f9fa; /* Light background */
+        margin: 0;
+        padding: 0px;
+    }
+
+    .header-container {
+        display: flex; 
+        align-items: center; 
+        background-color: #0c3b6d; 
+        color: white;
+        padding: 5px; 
+    }
+
+    .container {
+        max-width: 1300px;
+        margin: auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: white; /* White font for header */
+       
+        font-size: 24px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        font-size: 28px;
+        font-weight: 600;
+    }
+
     .center {
         text-align: center;
         margin-top: 1rem;
@@ -13,18 +53,36 @@
     .uppercase {
         text-transform: uppercase;
     }
+
+    label {
+        font-weight: bold; /* Make labels bold */
+    }
+
+    .btn-primary {
+        background-color: #17a2b8;
+        border: none;
+        color: white;
+        padding: 10px;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+        width: 100%; /* Make the button full width */
+    }
+
+    .btn-primary:hover {
+        background-color: #138496;
+    }
 </style>
 
 <div id="main">
-    <div class="w3-teal">
-        <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+    <div class="header-container">
+        <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
         <div class="w3-container">
             <h1>UPDATE CLASSLOAD</h1>
         </div>
     </div>
 
     <div class="container">
-        <h1>Update Management</h1>
+        <h2>Update Management</h2>
 
         <!-- Update Form -->
         <form action="/update_class/{{ $classes->id }}" method="POST" id="myForm">
@@ -134,6 +192,7 @@
                     <button type="submit"
                         class="btn btn-primary">{{ isset($classes) ? 'Save Changes' : 'Add Class' }}</button>
                 </div>
+            </div>
         </form>
 
         <hr>

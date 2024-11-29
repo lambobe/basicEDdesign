@@ -1,8 +1,8 @@
 @include('templates.principalheader')
 
 <div id="main">
-    <div class="w3-teal">
-        <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+    <div class="header-container">
+        <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
         <div class="w3-container">
             <h1>Available Sections</h1>
         </div>
@@ -12,9 +12,17 @@
         <style>
             body {
                 font-family: 'Arial', sans-serif;
-                background-color: #f0f4f8;
+                background-color: #f8f9fa; /* Light background */
                 margin: 0;
-                padding: 20px;
+                padding: 0px;
+            }
+
+            .header-container {
+                display: flex; 
+                align-items: center; 
+                background-color: #0c3b6d; 
+                color: white;
+                padding: 5px; 
             }
 
             .container {
@@ -27,6 +35,13 @@
             }
 
             h1 {
+                text-align: center;
+                color: white; /* White font for header */
+                padding: 5px;
+                font-size:24px;
+            }
+
+            h2 {
                 text-align: center;
                 color: #2c3e50;
                 margin-bottom: 20px;
@@ -73,7 +88,7 @@
             }
 
             th {
-                background-color: #2980b9;
+                background-color: #2980b9; /* Header background color */
                 color: white;
                 font-weight: bold;
             }
@@ -102,7 +117,7 @@
                     padding: 10px 5px;
                 }
 
-                h1 {
+                h2 {
                     font-size: 22px;
                 }
 
@@ -129,7 +144,6 @@
             <thead>
                 <tr>
                     <th>Year Level</th>
-                  
                     <th>Section</th>
                     <th>Status</th>
                 </tr>
@@ -137,7 +151,6 @@
             <tbody id="classTableBody">
                 @php
                     $uniqueSections = [];
-            
                     foreach ($classes as $class) {
                         if ($class->grade === $proof->level && !in_array($class->section, $uniqueSections)) {
                             $uniqueSections[] = $class->section; 
@@ -152,7 +165,6 @@
                     }
                 @endphp
             </tbody>
-
         </table>
     </div>
 </div>
@@ -185,9 +197,7 @@
     }
 
     function redirectToSection(paymentId, sectionName) {
-    console.log("Redirecting to:", `/section/${paymentId}/${sectionName}`);
-    window.location.href = `/section/${paymentId}/${sectionName}`; 
-}
-
-
+        console.log("Redirecting to:", `/section/${paymentId}/${sectionName}`);
+        window.location.href = `/section/${paymentId}/${sectionName}`; 
+    }
 </script>
