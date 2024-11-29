@@ -2,28 +2,36 @@
 
 <style>
     body {
-        background-color: #f7f9fc;
+        background-color: white; /* Change to match dashboard */
         font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
     }
 
     #main {
-        padding: 20px;
+        padding: 0px; /* Added padding for spacing */
     }
 
-    .w3-teal {
-        background-color: #007bff;
+    .header-container {
+        display: flex; 
+        align-items: center; 
+        background-color: #0c3b6d; /* Match dashboard header color */
+        color: white;
+        padding: 10px; /* Match dashboard padding */
     }
 
     h1 {
-        font-size: 2.5rem;
+        font-size: 20px; /* Adjusted to match dashboard */
         margin: 0;
         color: white;
+        text-align: center;
+        flex-grow: 1; /* Allow header to take available space */
     }
 
     h2 {
         margin-bottom: 20px;
         font-size: 1.75rem;
-        color: #343a40;
+        color: #333; /* Change to match dashboard subheading color */
     }
 
     .list-group {
@@ -52,12 +60,12 @@
     .fw-bold {
         font-size: 1.2rem;
         margin-bottom: 0.5rem;
-        color: #343a40;
+        color: #343a40; /* Consistent with dashboard */
     }
 
     .list-group-item p {
         font-size: 0.95rem;
-        color: #6c757d;
+        color: #6c757d; /* Consistent with dashboard */
     }
 
     .badge {
@@ -72,8 +80,8 @@
 
     /* Button styling */
     .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
+        background-color: #0c3b6d; /* Change to match primary color */
+        border-color: #0c3b6d;
     }
 
     /* Responsive adjustments */
@@ -93,13 +101,12 @@
 </style>
 
 <div id="main">
-    <div class="w3-teal ">
-        <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
-        <h1 style="text-align: center; margin: 20px 0;">Student Enrollment</h1>
+    <div class="header-container">
+        <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
+        <h1>Student Enrollment</h1>
     </div>
     
     <section class="container my-5">
- 
         <div class="row">
             <div class="col-12">
                 <h2>Enrollment Steps</h2>
@@ -124,7 +131,6 @@
                         @php
                             $studentDetail = \App\Models\studentdetails::where('details_id', $registerForm->id)->first();
                         @endphp
-
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
                                 <div class="fw-bold">Student Details</div>
@@ -179,7 +185,7 @@
                                     <span class="badge bg-success rounded-pill">Completed</span>
                                 @else
                                     <a href="{{ route('updateschool.id', ['id' => $school_id]) }}" 
-    class="btn btn-primary mt-3 rounded-pill updateInfoBtn">
+                                    class="btn btn-primary mt-3 rounded-pill updateInfoBtn">
                                         Confirm Information
                                     </a>
                                 @endif
@@ -189,7 +195,6 @@
                         @php
                             $existingDocs = \App\Models\required_docs::where('required_id', $registerForm->id)->first();
                         @endphp
-                        
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
                                 <div class="fw-bold">Required Documents Upload</div>
@@ -231,19 +236,19 @@
                             </div>
                         </li>
 
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                            <div class="fw-bold">Sectioning</div>
-                            <p>Assign the student to a specific section or class.</p>
-                        </div>
-                        <div>
-                            @if ($assignStatus === 'assigned')
-                                <span class="badge bg-success rounded-pill">Completed</span>
-                            @else
-                                <span class="badge bg-warning rounded-pill">Pending</span>
-                            @endif
-                        </div>
-                    </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Sectioning</div>
+                                <p>Assign the student to a specific section or class.</p>
+                            </div>
+                            <div>
+                                @if ($assignStatus === 'assigned')
+                                    <span class="badge bg-success rounded-pill">Completed</span>
+                                @else
+                                    <span class="badge bg-warning rounded-pill">Pending</span>
+                                @endif
+                            </div>
+                        </li>
 
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">

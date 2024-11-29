@@ -1,15 +1,94 @@
 @include('templates.recordheader')
 
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: white;
+        margin: 0;
+        padding: 0;
+    }
+
+    .header-container {
+        display: flex; 
+        align-items: center; 
+        background-color: #0c3b6d; 
+        color: white;
+        padding: 10px; 
+    }
+
+    .w3-teal {
+        background-color: #0c3b6d; 
+    }
+
+    h1 {
+        margin: 0; 
+        font-size: 20px;
+    }
+
+    .w3-sidebar {
+        background-color: #0c3b6d; 
+        color: white;
+    }
+
+    .w3-bar-item {
+        color: white;
+        font-size: 16px;
+    }
+
+    .w3-bar-item:hover {
+        background-color: #0a2e4d; /* Darker shade on hover */
+    }
+
+    .container {
+        margin: 100px; /* Add margin to container */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center contents */
+    }
+
+    .card {
+        border-radius: 8px;
+        transition: transform 0.2s, box-shadow 0.2s;
+        width: 100%; /* Full width for smaller screens */
+        max-width: 600px; /* Limit max width */
+        margin: 10px 0; /* Add margin for spacing */
+    }
+
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-header {
+        background-color: #0c3b6d; /* Match card header color */
+        color: white;
+    }
+
+    .list-group-item {
+        transition: background-color 0.3s;
+    }
+
+    .list-group-item:hover {
+        background-color: #e9ecef; /* Light hover effect */
+    }
+
+    h1, h5 {
+        margin: 0;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+</style>
+
 <div id="main">
-    <div class="w3-teal">
-        <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
-        <div class="w3-container">
-            <h1 class="text-center">RECORD DASHBOARD</h1>
-        </div>
+    <div class="header-container">
+        <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
+        <h1 class="text-center">Records Dashboard</h1>
     </div>
 
     <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
-        <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
+        
         <a href="/principal" class="w3-bar-item w3-button">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                 class="bi bi-house-check-fill" viewBox="0 0 16 16">
@@ -25,10 +104,10 @@
 
     <div class="container mt-4 mb-5">
         <div class="row">
-            <!-- Account Summary Card -->
+      
             <div class="col-md-12 mb-4">
                 <div class="card border-primary shadow-sm">
-                    <div class="card-header bg-primary text-white">
+                    <div class="card-header">
                         <h5 class="mb-0">Account Summary</h5>
                     </div>
                     <div class="card-body text-center">
@@ -38,7 +117,7 @@
                 </div>
             </div>
 
-            <!-- Student Information Card -->
+            
             <div class="col-md-12 mb-4">
                 <div class="card shadow-sm">
                     <div class="card-header">
@@ -55,47 +134,30 @@
             </div>
         </div>
     </div>
-
 </div>
 
-<style>
-    body {
-        font-family: 'Arial', sans-serif;
-        background-color: #f8f9fa;
-        margin: 0;
-        padding: 0;
-    }
-
-    .w3-teal {
-        background-color: #007bff;
-    }
-
-    .card {
-        border-radius: 8px;
-        transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .list-group-item {
-        transition: background-color 0.3s;
-    }
-
-    .list-group-item:hover {
-        background-color: #e9ecef;
-    }
-
-    h1,
-    h5 {
-        margin: 0;
-    }
-
-    .text-center {
-        text-align: center;
-    }
-</style>
-
 @include('templates.recordfooter')
+
+<script>
+    function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        // Add event listener to close sidebar on outside click
+        document.addEventListener('click', outsideClickListener);
+    }
+
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        // Remove the event listener when sidebar is closed
+        document.removeEventListener('click', outsideClickListener);
+    }
+
+    function outsideClickListener(event) {
+        const sidebar = document.getElementById("mySidebar");
+        const openButton = document.getElementById("openNav");
+
+        // Check if the click was outside the sidebar and the open button
+        if (sidebar.style.display === "block" && !sidebar.contains(event.target) && event.target !== openButton) {
+            w3_close();
+        }
+    }
+</script>

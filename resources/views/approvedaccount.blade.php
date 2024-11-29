@@ -1,11 +1,82 @@
 @include('templates.recordheader')
 
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: white; /* Changed for consistency */
+        margin: 0;
+        padding: 0;
+    }
+
+    .header-container {
+        display: flex; 
+        align-items: center; 
+        background-color: #0c3b6d; 
+        color: white;
+        padding: 15px; 
+    }
+
+    .w3-teal {
+        background-color: #0c3b6d; /* Match the header color */
+    }
+
+    h1 {
+        margin: 0; 
+        font-size: 24px;
+    }
+
+    .container {
+        margin: 20px auto; /* Center the container */
+        max-width: 800%; /* Limit max width */
+        padding: 0 15px; /* Add padding */
+    }
+
+    .input-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .table th,
+    .table td {
+        vertical-align: middle;
+        padding: 15px;
+        text-align: left;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f2f2f2;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #e9ecef;
+    }
+
+    .btn-outline-secondary {
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .btn-outline-secondary:hover {
+        background-color: #e0e0e0;
+    }
+</style>
+
 <div id="main">
-    <div class="w3-teal">
-        <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
-        <div class="w3-container">
-            <h1>Student Approved Account</h1>
-        </div>
+    <div class="header-container">
+        <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
+        <h1>Student Approved Account</h1>
     </div>
 
     <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
@@ -63,7 +134,6 @@
                         <th>Middle Name</th>
                         <th>Email Address</th>
                         <th>Password</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -106,57 +176,5 @@
         });
     });
 </script>
-
-<style>
-    body {
-        font-family: 'Arial', sans-serif;
-        background-color: #f8f9fa;
-    }
-
-    .w3-teal {
-        background-color: #007bff;
-        color: white;
-        padding: 15px;
-    }
-
-    h1 {
-        margin: 0;
-        font-size: 24px;
-    }
-
-    .container {
-        margin-top: 20px;
-    }
-
-    .input-group {
-        margin-bottom: 20px;
-    }
-
-    .table {
-        border-radius: 8px;
-        overflow: hidden;
-    }
-
-    .table th,
-    .table td {
-        vertical-align: middle;
-    }
-
-    .table-striped tbody tr:nth-of-type(odd) {
-        background-color: #f2f2f2;
-    }
-
-    .table-hover tbody tr:hover {
-        background-color: #e9ecef;
-    }
-
-    .btn-outline-secondary {
-        transition: background-color 0.3s, color 0.3s;
-    }
-
-    .btn-outline-secondary:hover {
-        background-color: #e0e0e0;
-    }
-</style>
 
 @include('templates.recordfooter')

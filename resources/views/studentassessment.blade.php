@@ -3,7 +3,32 @@
 
 <style>
     body {
-        background-color: #f8f9fa;
+        background-color: #f4f4f4; /* Consistent background color */
+        font-family: Arial, sans-serif; /* Consistent font */
+    }
+
+    #main {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0; /* Added padding for spacing */
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    .header-container {
+        display: flex; 
+        align-items: center; 
+        background-color: #0c3b6d; 
+        color: white;
+        padding: 10px; 
+    }
+
+    .header-container h1 {
+        margin: 0; 
+        font-size: 24px; /* Increased font size for visibility */
+        flex-grow: 1; /* Allow header to take available space */
+        text-align: center; /* Center the header text */
     }
 
     .form-container {
@@ -12,16 +37,7 @@
         border-radius: 10px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         max-width: 600px; /* Set a max width for the form */
-        margin: auto; /* Center the form */
-    }
-
-    .w3-container h1 {
-        margin-bottom: 1.5rem;
-        text-align: center;
-        margin-left:-80%;
-   
-        
-        
+        margin: 20px auto; /* Center the form with margin */
     }
 
     .form-group {
@@ -98,11 +114,9 @@
 </style>
 
 <div id="main">
-    <div class="w3-teal">
-        <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
-        <div class="w3-container">
-            <h1>ASSESSMENTS</h1>
-        </div>
+    <div class="header-container">
+        <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
+        <h1>ASSESSMENTS</h1>
     </div>
 
     <div class="container d-flex justify-content-center align-items-start" style="min-height: 80vh;">
@@ -112,7 +126,7 @@
             <form method="GET" action="/studentassessment" class="assessment-form">
                 <div class="form-group">
                     <label for="school_year">Select School Year:</label>
-                    <select id="school_year" name="school_year" onchange="this.form.submit()" required>
+                    <select id="school_year" name="school_year" onchange="this.form.submit()" required class="form-select">
                         <option value="">All</option>
                         @foreach($schoolYears as $year)
                             <option value="{{ $year }}" {{ request('school_year') == $year ? 'selected' : '' }}>
@@ -149,7 +163,14 @@
 </div>
 
 <script>
-    // Add any necessary JavaScript here, if needed
+    function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+    }
+
+    function w3_close(event) {
+        if (event && event.target.closest("#mySidebar")) return;
+        document.getElementById("mySidebar").style.display = "none";
+    }
 </script>
 
 @include('templates.studentfooter')

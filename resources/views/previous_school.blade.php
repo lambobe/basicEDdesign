@@ -26,15 +26,32 @@
         }
 
         h1 {
-            text-align: center;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            text-align: left;
             margin-bottom: 20px;
+            color: #0c3b6d;
+            font-size: 30px;
+            margin-left: 1px;
         }
 
         h4 {
-            text-align: center;
+            font-family: 'Arial', sans-serif;
+            text-align: left;
             margin-bottom: 30px;
             font-weight: 300;
             color: #6c757d;
+            font-size: 20px;
+            margin-left: 5px;
+        }
+
+        .school-heading {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            color: #0c3b6d;
+            font-size: 24px; /* Adjusted font size */
+            margin-top: 20px; /* Space above the heading */
+            margin-bottom: 10px; /* Space below the heading */
         }
     </style>
 </head>
@@ -47,7 +64,6 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
 
         <script>
             $(document).ready(function() {
@@ -63,14 +79,11 @@
             });
         </script>
 
-
-
-
         <form action="/previous_school" method="POST" class="row g-3">
             @csrf
 
             <!-- Secondary School -->
-            <h3 class="mb-3">Secondary School</h3>
+            <h3 class="school-heading">Secondary School</h3>
             <div class="col-md-6">
                 <label for="secondary-school-name" class="form-label">School Name <span
                         class="text-danger">*</span></label>
@@ -116,7 +129,7 @@
             </div>
 
             <!-- Primary School -->
-            <h3 class="mb-3">Primary School</h3>
+            <h3 class="school-heading">Primary School</h3>
             <div class="col-md-6">
                 <label for="primary-school-name" class="form-label">School Name <span
                         class="text-danger">*</span></label>
@@ -162,9 +175,7 @@
                 </select>
             </div>
 
-
             <input type="hidden" name="school_id" id="school_id" value="{{ $registerForm->id }}">
-
 
             <div class="col-12 text-end">
                 <button type="submit" name="submit" class="btn btn-primary">Next</button>

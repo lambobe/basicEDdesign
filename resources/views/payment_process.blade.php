@@ -7,9 +7,45 @@
     <title>Payment Form</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        .form-control:focus {
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #0c3b6d;
+            font-weight: bold;
+        }
+
+        .form-group label {
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background-color: #0c3b6d;
             border-color: #007bff;
-            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .custom-file-label::after {
+            content: "Browse";
+            background-color: #0c3b6d;
+            color: white;
         }
     </style>
 </head>
@@ -53,7 +89,7 @@
                     placeholder="Enter payment details" required></textarea>
             </div>
             <input type="hidden" name="payment_id" value="{{ $registerForm->id }}">
-            <button type="submit" class="btn btn-primary btfn-block">Submit Payment</button>
+            <button type="submit" class="btn btn-primary btn-block">Submit Payment</button>
         </form>
     </div>
 

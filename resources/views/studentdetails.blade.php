@@ -27,21 +27,28 @@
         }
 
         h1 {
-            text-align: center;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            text-align: left;
             margin-bottom: 20px;
+            color: #0c3b6d;
+            font-size: 30px;
+            margin-left: 5px;
         }
 
         h4 {
-            text-align: center;
+            font-family: 'Arial', sans-serif;
+            text-align: left;
             margin-bottom: 30px;
             font-weight: 300;
             color: #6c757d;
+            font-size: 20px;
+            margin-left: 5px;
         }
 
-        .personal-details {
-            background-color: #f4f4f4;
-            padding: 20px;
-            border-radius: 8px;
+ 
+        .red-asterisk {
+            color: red;
         }
     </style>
 </head>
@@ -50,23 +57,23 @@
 
    <div class="container">
         <h1>Personal Details</h1>
-        <h4>Please fill in the required fields diligently. All required fields are marked with an asterisk (*).</h4>
+        <h4>Please fill in the required fields diligently. All required fields are marked with an asterisk <span class="red-asterisk">*</span>.</h4>
         <div class="personal-details">
             <form action="/studentdetails" method="POST">
                 @csrf
                 <div class="row g-3">
                     <div class="col-md-6">
-                        <label for="firstname" class="form-label">First Name *</label>
+                        <label for="firstname" class="form-label">First Name <span class="red-asterisk">*</span></label>
                         <input type="text" class="form-control" id="firstname" name="firstname" readonly
                             value="{{ auth()->user()->firstname }}">
                     </div>
                     <div class="col-md-6">
-                        <label for="middlename" class="form-label">Middle Name *</label>
+                        <label for="middlename" class="form-label">Middle Name <span class="red-asterisk">*</span></label>
                         <input type="text" class="form-control" id="middlename" name="middlename" readonly
                             value="{{ auth()->user()->middlename }}">
                     </div>
                     <div class="col-md-6">
-                        <label for="lastname" class="form-label">Last Name *</label>
+                        <label for="lastname" class="form-label">Last Name <span class="red-asterisk">*</span></label>
                         <input type="text" class="form-control" id="lastname" name="lastname" readonly
                             value="{{ auth()->user()->lastname }}">
                     </div>
@@ -76,13 +83,13 @@
                             placeholder="e.g. Jr, Sr, III" value="{{ auth()->user()->suffix }}" readonly>
                     </div>
                     <div class="col-md-6">
-                        <label for="nationality" class="form-label">Nationality *</label>
+                        <label for="nationality" class="form-label">Nationality <span class="red-asterisk">*</span></label>
                         <input type="text" class="form-control" id="nationality"
                             placeholder="e.g. Filipino, American, etc." name="nationality" pattern="[A-Za-z\s]+"
                             title="Please enter letters only" onkeypress="return /^[A-Za-z\s]*$/.test(event.key)" required>
                     </div>
                     <div class="col-md-6">
-                        <label for="gender" class="form-label">Gender *</label>
+                        <label for="gender" class="form-label">Gender <span class="red-asterisk">*</span></label>
                         <select id="gender" name="gender" class="form-select" required>
                             <option value="" disabled selected>Select Gender</option>
                             <option value="male">Male</option>
@@ -90,7 +97,7 @@
                         </select>
                     </div>
                     <div class="col-md-6">
-                        <label for="civilstatus" class="form-label">Civil Status *</label>
+                        <label for="civilstatus" class="form-label">Civil Status <span class="red-asterisk">*</span></label>
                         <select id="civilstatus" name="civilstatus" class="form-select" required>
                             <option value="" disabled selected>Select Civil Status</option>
                             <option value="single">Single</option>
@@ -99,13 +106,13 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label for="birthdate" class="form-label">Birth Date *</label>
+                        <label for="birthdate" class="form-label">Birth Date <span class="red-asterisk">*</span></label>
                         <input type="date" class="form-control" id="birthdate" name="birthdate" required>
                         <div class="error" id="error" style="color: red; display: none;"></div>
                     </div>
 
                     <div class="col-md-6">
-                        <label for="birthplace" class="form-label">Birth Place *</label>
+                        <label for="birthplace" class="form-label">Birth Place <span class="red-asterisk">*</span></label>
                         <input type="text" class="form-control" id="birthplace" name="birthplace"
                             placeholder="City, Province/State, Country" pattern="[A-Za-z\s]+"
                             title="Please enter letters only" onkeypress="return /^[A-Za-z\s]*$/.test(event.key)" required>
@@ -117,7 +124,7 @@
                             onkeypress="return /^[A-Za-z\s]*$/.test(event.key)" required>
                     </div>
                     <div class="col-md-6">
-                        <label for="mother_name" class="form-label">Mother's Full Name *</label>
+                        <label for="mother_name" class="form-label">Mother's Full Name <span class="red-asterisk">*</span></label>
                         <input type="text" class="form-control" id="mother_name" name="mother_name"
                             pattern="[A-Za-z\s]+" title="Please enter letters only"
                             onkeypress="return /^[A-Za-z\s]*$/.test(event.key)" placeholder="e.g. Juanita De Los Angeles"
@@ -131,7 +138,7 @@
                             required>
                     </div>
                     <div class="col-md-6">
-                        <label for="mother_contact" class="form-label">Mother's Contact Number *</label>
+                        <label for="mother_contact" class="form-label">Mother's Contact Number <span class="red-asterisk">*</span></label>
                         <input type="text" class="form-control" id="mother_contact" name="mother_contact"
                             pattern="\d*" title="Please enter numbers only"
                             onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength="11"
@@ -139,7 +146,7 @@
                         <small class="form-text text-muted">Only numbers are allowed.</small>
                     </div>
                     <div class="col-md-6">
-                        <label for="father_name" class="form-label">Father's Full Name *</label>
+                        <label for="father_name" class="form-label">Father's Full Name <span class="red-asterisk">*</span></label>
                         <input type="text" class="form-control" id="father_name" name="father_name"
                             pattern="[A-Za-z\s]+" title="Please enter letters only"
                             onkeypress="return /^[A-Za-z\s]*$/.test(event.key)" placeholder="e.g. Juanito De Los Anegeles"
@@ -153,7 +160,7 @@
                             required>
                     </div>
                     <div class="col-md-6">
-                        <label for="father_contact" class="form-label">Father's Contact Number *</label>
+                        <label for="father_contact" class="form-label">Father's Contact Number <span class="red-asterisk">*</span></label>
                         <input type="text" class="form-control" id="father_contact" name="father_contact"
                             pattern="\d*" title="Please enter numbers only"
                             onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength="11"
@@ -191,8 +198,6 @@
         </div>
     </div>
 
-
-
     <script>
         document.getElementById('birthdate').addEventListener('change', function() {
             const birthdateInput = this.value;
@@ -207,7 +212,6 @@
             }
         });
     </script>
-
 
 </body>
 

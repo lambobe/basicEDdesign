@@ -21,15 +21,23 @@
         }
 
         h1 {
-            text-align: center;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            text-align: left;
             margin-bottom: 20px;
+            color: #0c3b6d;
+            font-size: 25px;
+            margin-left: 1px;
         }
 
         h4 {
-            text-align: center;
+            font-family: 'Arial', sans-serif;
+            text-align: left;
             margin-bottom: 30px;
             font-weight: 300;
             color: #6c757d;
+            font-size: 20px;
+            margin-left: 5px;
         }
     </style>
 </head>

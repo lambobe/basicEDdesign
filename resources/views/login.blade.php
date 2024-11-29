@@ -17,7 +17,6 @@
             margin: 0;
             padding: 0;
             height: 100vh;
-           
             overflow: hidden;
             background-color: #0c76e0;
             position: relative;
@@ -68,7 +67,7 @@
             left: 51.8%;
             transform: translate(-50%, -50%);
             z-index: 1;
-            width: 400%; 
+            width: 400%;
             max-width: 58%;
         }
 
@@ -79,7 +78,6 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
             position: relative;
-            
         }
 
         .logo {
@@ -158,10 +156,29 @@
                 transform: translateX(0vw) scaleX(-1);
             }
         }
+
+        /* Button style */
+        #musicControls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10; /* Ensure button is above other elements */
+        }
     </style>
 </head>
 
 <body>
+    <!-- Background Music -->
+    <audio id="backgroundMusic" autoplay loop muted>
+        <source src="music/jinglebells.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div id="musicControls">
+        <button id="playMusic" class="btn btn-primary">Play Music</button>
+        <button id="pauseMusic" class="btn btn-secondary">Pause Music</button>
+    </div>
+
     <!-- Snowflake container -->
     <div id="snow-container"></div>
 
@@ -222,6 +239,7 @@
         }
 
         setInterval(createSnowflake, 200);
+
         // Show/hide password functionality
         const passwordInput = document.getElementById('password');
         const showPasswordCheckbox = document.getElementById('showPassword');
@@ -232,6 +250,18 @@
             } else {
                 passwordInput.type = 'password';
             }
+        });
+
+        // Play and pause music functionality
+        const audio = document.getElementById('backgroundMusic');
+
+        document.getElementById('playMusic').addEventListener('click', () => {
+            audio.muted = false; // Unmute the audio
+            audio.play(); // Play the audio
+        });
+
+        document.getElementById('pauseMusic').addEventListener('click', () => {
+            audio.pause(); // Pause the audio
         });
     </script>
 </body>

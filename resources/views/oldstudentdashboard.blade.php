@@ -3,20 +3,11 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
+        background-color: white;
         margin: 0;
         padding: 0;
     }
 
-    #main {
-        max-width: 100%;
-        margin: 0 auto;
-        padding: 0px;
-        background-color: white;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        position: relative; /* Ensure positioning context for event handling */
-    }
 
     .header-container {
         display: flex; 

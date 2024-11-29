@@ -85,7 +85,7 @@
     <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
         <div class="profile-section">
             <img src="image/cler.jpg" alt="Profile Picture" class="profile-picture">
-            <span class="profile-name" style="margin-top:-3.5%; font-size: 17px;">Mary Claire Dungog</span> 
+            <span class="profile-name" style="margin-top:-3.5%; font-size: 17px;">{{ auth()->user()->firstname }}</span> 
         </div>
 
         <h5>

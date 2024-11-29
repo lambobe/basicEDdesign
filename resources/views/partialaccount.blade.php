@@ -22,6 +22,15 @@
         .card-registration .select-arrow {
             top: 13px;
         }
+
+        /* New CSS class for image height */
+        .custom-img-height {
+            height: 135vh; /* Adjust this value as needed */
+            object-fit: cover; /* Ensures the image covers the set height */
+            border-top-left-radius: .25rem;
+            border-bottom-left-radius: .25rem;
+        }
+        
     </style>
 </head>
 
@@ -32,11 +41,10 @@
                 <div class="col">
                     <div class="card card-registration my-4">
                         <div class="row g-0">
-                            <div class="col-xl-6 d-none d-xl-block">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
-                                    alt="Sample photo" class="img-fluid"
-                                    style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
-                            </div>
+                        <div class="col-xl-6 d-none d-xl-block">
+    <img src="image/redhat.jpg"
+        alt="Description of my photo" class="img-fluid custom-img-height" />
+</div>
                             <div class="col-xl-6">
                                 <form id="registrationForm" action="/partialaccount" method="POST">
                                     @csrf
