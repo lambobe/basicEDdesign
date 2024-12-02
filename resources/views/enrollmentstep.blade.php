@@ -24,7 +24,7 @@
         font-size: 20px; /* Adjusted to match dashboard */
         margin: 0;
         color: white;
-        text-align: center;
+        text-align: left; /* Align text to the left */
         flex-grow: 1; /* Allow header to take available space */
     }
 
@@ -103,7 +103,7 @@
 <div id="main">
     <div class="header-container">
         <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
-        <h1>Student Enrollment</h1>
+        <h1>Student Enrollment</h1> <!-- Title beside the burger icon -->
     </div>
     
     <section class="container my-5">

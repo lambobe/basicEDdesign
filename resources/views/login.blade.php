@@ -64,17 +64,20 @@
         .container {
             position: absolute;
             top: 50%;
-            left: 51.8%;
+            left: 45%;
             transform: translate(-50%, -50%);
             z-index: 1;
-            width: 400%;
-            max-width: 58%;
+            width: 100%;
+            max-width: 450px; /* Maximum width for larger screens */
+            padding: 0 20px; /* Padding for small screens */
         }
 
         .card {
             background-color: white;
             border-radius: 10px;
-            padding: 2rem;
+            padding: 1.5rem; /* Adjusted padding for better fit */
+            width: 200%; /* Full width of the container */
+            height: auto; /* Set to auto for dynamic height based on content */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
             position: relative;
@@ -88,7 +91,23 @@
         }
 
         .logo img {
-            width: 150px;
+            width: 120px;
+        }
+
+        .education-text {
+            color: grey; /* Set the text color to grey */
+            margin-top: 0.5rem; /* Add some space above the text */
+            font-weight: bold; /* Optional: Make the text bold */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .line {
+            flex-grow: 1;
+            height: 1px; /* Thickness of the line */
+            background-color: #001f3f; /* Color of the line */
+            margin: 0 10px; /* Space around the line */
         }
 
         .form-check {
@@ -122,10 +141,10 @@
 
         .hat {
             position: absolute;
-            top: -110px;
-            right: -21%;
-            width: 300px;
-            transform: rotate(12deg);
+            top: -80px;
+            right: -22%;
+            width: 240px;
+            transform: rotate(14deg);
         }
 
         .santa-gif {
@@ -157,18 +176,93 @@
             }
         }
 
-        /* Button style */
+        /* Pop-out Image */
+        #popoutImage {
+            position: absolute;
+            bottom: -4%; /* Adjust vertical position */
+            left: 0%; /* Adjust for left corner */
+            width: 150px; /* Adjust as needed */
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Text next to the pop-out image */
+        #popoutText {
+            position: absolute;
+            bottom: 22%; /* Adjust vertical position */
+            left: 8.5%; /* Adjust horizontal position */
+            background-color: white;
+            border: 2px solid #1A5794; /* Border color */
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 20px;
+            color: #1A5794; /* Text color */
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Music Controls */
         #musicControls {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 10; /* Ensure button is above other elements */
+            top: 20px; /* Adjust as needed */
+            right: 20px; /* Adjust as needed */
+            z-index: 2; /* Bring controls to the front */
+        }
+
+        /* Ensure the form elements are aligned properly */
+        .form-outline input {
+            width: 100%; /* Ensure the input takes full width */
+        }
+
+        .btn-block {
+            width: 100%; /* Ensure button takes full width */
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%; /* Take up more width on smaller screens */
+                padding: 0; /* Remove extra padding */
+            }
+
+            .card {
+                padding: 1rem; /* Adjust padding for smaller screens */
+            }
+
+            .logo img {
+                width: 100px; /* Smaller logo for mobile */
+            }
+
+            /* Hide music controls and pop-out elements on mobile */
+            #musicControls,
+            #popoutImage,
+            #popoutText {
+                display: none; /* Hide these elements */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hat {
+                width: 150px; /* Adjust hat size for mobile */
+            }
+
+            .santa-gif {
+                width: 300px; /* Adjust Santa gif size for mobile */
+            }
+
+            #popoutImage {
+                width: 100px; /* Smaller pop-out image */
+            }
+
+            #popoutText {
+                font-size: 16px; /* Smaller text for mobile */
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- Background Music -->
+    
     <audio id="backgroundMusic" autoplay loop muted>
         <source src="music/jinglebells.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -182,6 +276,11 @@
     <!-- Snowflake container -->
     <div id="snow-container"></div>
 
+    <!-- Pop-out Image -->
+    <img id="popoutImage" src="image/jose1.png" alt="Pop-out Image">
+    <!-- Pop-out Text -->
+    <div id="popoutText">Magpapasko na!</div>
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -193,20 +292,25 @@
                     <div class="logo">
                         <img src="image/UCLOGO.png" alt="logo">
                     </div>
+                    <div class="education-text" style="margin-top: 5px; margin-bottom:20px; font-size:13px; color:#001f3f;">
+                        <div class="line"></div>
+                        Basic Education
+                        <div class="line"></div>
+                    </div>
 
                     <form action="/login" method="POST">
                         @csrf
                         <div class="form-outline mb-3">
-                            <input type="email" id="email" name="email" class="form-control" placeholder="Email">
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
                         </div>
                         <div class="form-outline mb-3">
-                            <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
                         </div>
                         <div class="form-check mb-3">
                             <input type="checkbox" class="form-check-input" id="showPassword">
                             <label class="form-check-label" for="showPassword">Show Password</label>
                         </div>
-                        <button class="btn btn-primary btn-block w-100 mb-3">Login</button>
+                        <button class="btn btn-primary btn-block mb-3">Login</button>
                         <a href="#" class="text-muted">Forgot Password?</a>
                     </form>
 
@@ -240,7 +344,6 @@
 
         setInterval(createSnowflake, 200);
 
-        // Show/hide password functionality
         const passwordInput = document.getElementById('password');
         const showPasswordCheckbox = document.getElementById('showPassword');
 
@@ -252,17 +355,32 @@
             }
         });
 
-        // Play and pause music functionality
         const audio = document.getElementById('backgroundMusic');
 
         document.getElementById('playMusic').addEventListener('click', () => {
-            audio.muted = false; // Unmute the audio
-            audio.play(); // Play the audio
+            audio.muted = false; 
+            audio.play(); 
+            toggleImageAndText(); // Show pop-out image and text when music plays
         });
 
         document.getElementById('pauseMusic').addEventListener('click', () => {
-            audio.pause(); // Pause the audio
+            audio.pause(); 
         });
+
+        // Pop-out image logic
+        const popoutImage = document.getElementById('popoutImage');
+        const popoutText = document.getElementById('popoutText');
+
+        function toggleImageAndText() {
+            popoutImage.style.opacity = 1; // Show image
+            popoutText.style.opacity = 1; // Show text
+            setTimeout(() => {
+                popoutImage.style.opacity = 0; // Hide image
+                popoutText.style.opacity = 0; // Hide text
+            }, 3000); // Both shown for 3 seconds
+        }
+
+        setInterval(toggleImageAndText, 6000); // Repeat every 6 seconds
     </script>
 </body>
 
