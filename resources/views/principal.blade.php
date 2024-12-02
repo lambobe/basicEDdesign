@@ -78,12 +78,15 @@
             margin-bottom: 20px; /* Space between cards on small screens */
         }
     }
+    h1{
+        font-size:20px;
+    }
 </style>
 
 <div id="main">
     <div class="header-container">
         <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
-        <h1>PRINCIPAL DASHBOARD</h1>
+        <h1>Principal Dashboard</h1>
     </div>
 
     <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">

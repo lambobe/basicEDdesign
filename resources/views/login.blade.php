@@ -64,7 +64,7 @@
         .container {
             position: absolute;
             top: 50%;
-            left: 45%;
+            left: 45%; /* Center horizontally */
             transform: translate(-50%, -50%);
             z-index: 1;
             width: 100%;
@@ -181,7 +181,7 @@
             position: absolute;
             bottom: -4%; /* Adjust vertical position */
             left: 0%; /* Adjust for left corner */
-            width: 150px; /* Adjust as needed */
+            width: 120px; /* Adjust as needed */
             opacity: 0;
             transition: opacity 0.5s ease;
         }
@@ -189,13 +189,13 @@
         /* Text next to the pop-out image */
         #popoutText {
             position: absolute;
-            bottom: 22%; /* Adjust vertical position */
-            left: 8.5%; /* Adjust horizontal position */
+            bottom: 25%; /* Adjust vertical position */
+            left: 9.5%; /* Adjust horizontal position */
             background-color: white;
             border: 2px solid #1A5794; /* Border color */
             border-radius: 5px;
             padding: 10px;
-            font-size: 20px;
+            font-size: 16px;
             color: #1A5794; /* Text color */
             opacity: 0;
             transition: opacity 0.5s ease;
@@ -279,7 +279,7 @@
     <!-- Pop-out Image -->
     <img id="popoutImage" src="image/jose1.png" alt="Pop-out Image">
     <!-- Pop-out Text -->
-    <div id="popoutText">Magpapasko na!</div>
+    <div id="popoutText">Merry Christmas!</div>
 
     <div class="container">
         <div class="row justify-content-center">
@@ -356,6 +356,7 @@
         });
 
         const audio = document.getElementById('backgroundMusic');
+        let toggleInterval;
 
         document.getElementById('playMusic').addEventListener('click', () => {
             audio.muted = false; 
@@ -365,6 +366,7 @@
 
         document.getElementById('pauseMusic').addEventListener('click', () => {
             audio.pause(); 
+            stopImageAndText(); // Stop the pop-out image and text when music is paused
         });
 
         // Pop-out image logic
@@ -378,9 +380,26 @@
                 popoutImage.style.opacity = 0; // Hide image
                 popoutText.style.opacity = 0; // Hide text
             }, 3000); // Both shown for 3 seconds
+            
+            if (!toggleInterval) {
+                toggleInterval = setInterval(() => {
+                    popoutImage.style.opacity = 1;
+                    popoutText.style.opacity = 1;
+                    setTimeout(() => {
+                        popoutImage.style.opacity = 0; 
+                        popoutText.style.opacity = 0; 
+                    }, 3000);
+                }, 6000); // Repeat every 6 seconds
+            }
         }
 
-        setInterval(toggleImageAndText, 6000); // Repeat every 6 seconds
+        function stopImageAndText() {
+            clearInterval(toggleInterval); // Stop the interval
+            toggleInterval = null; // Reset the interval variable
+            popoutImage.style.opacity = 0; // Hide image
+            popoutText.style.opacity = 0; // Hide text
+        }
+        
     </script>
 </body>
 
