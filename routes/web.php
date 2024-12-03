@@ -204,7 +204,7 @@ Route::post('newstudent', [Datacontroller::class, 'newstudentpost']);
 Route::get('oldstudent', [Pagecontroller::class, 'oldstudent']);
 Route::post('oldstudent', [Datacontroller::class, 'oldstudentpost']);
 
-Route::get('oldstudentdashboard', [Pagecontroller::class, 'oldstudentdashboard'])->middleware('auth');
+Route::get('oldstudentdashboard', [Pagecontroller::class, 'oldstudentdashboard'])->middleware('auth')->name('oldstudentdashboard');
 
 Route::get('oldstudentaddress', [Pagecontroller::class, 'oldstudentaddress']);
 Route::post('oldstudentaddress', [Datacontroller::class, 'oldstudentaddresspost']);
@@ -275,3 +275,4 @@ Route::delete('/documents/{id}', [Datacontroller::class, 'destroy']);
 Route::get('updateschool', [Pagecontroller::class, 'updateschool'])->middleware('auth')->name('updateschool');
 Route::post('updateschool', [Datacontroller::class, 'updateschoolpost'])->middleware('auth');
 Route::get('updateschool/{id}', [UserController::class, 'updateschool'])->middleware('auth')->name('updateschool.id');
+

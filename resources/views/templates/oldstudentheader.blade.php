@@ -83,7 +83,7 @@
         }
 
         .w3-bar-item:hover svg {
-            fill: #0800e4; /* Change icon color on hover */
+            fill: black; /* Change icon color on hover */
         }
 
         /* Close Button Style */
@@ -108,7 +108,7 @@
         </div>
 
         <h5>
-            <a href="/oldstudentdashboard" class="w3-bar-item w3-button">
+            <a href="/oldstudentdashboard" class="w3-bar-item w3-button" id="homeLink">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-house-check-fill"
                     viewBox="0 0 16 16">
                     <path
