@@ -20,6 +20,7 @@
             overflow: hidden;
             background-color: #0c76e0;
             background-size:cover;
+            
             min-height:200vh;
             position: relative;
         }
@@ -180,7 +181,7 @@
         /* Pop-out Image */
         #popoutImage {
             position: absolute;
-            bottom: -4%; /* Adjust vertical position */
+            bottom: 48%; /* Adjust vertical position */
             left: 0%; /* Adjust for left corner */
             width: 120px; /* Adjust as needed */
             opacity: 0;
@@ -190,7 +191,7 @@
         /* Text next to the pop-out image */
         #popoutText {
             position: absolute;
-            bottom: 25%; /* Adjust vertical position */
+            bottom: 62%; /* Adjust vertical position */
             left: 9.5%; /* Adjust horizontal position */
             background-color: white;
             border: 2px solid #1A5794; /* Border color */

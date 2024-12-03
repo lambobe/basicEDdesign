@@ -26,7 +26,6 @@
         margin: 0; 
         font-family: 'Arial', sans-serif;
         font-size: 20px;
-        
     }
 
     h2 {
@@ -41,7 +40,8 @@
     }
 
     img {
-        max-width: 200px;
+        max-width: 100%; /* Make image responsive */
+        height: auto; /* Maintain aspect ratio */
         margin-bottom: 20px;
     }
 
@@ -55,6 +55,44 @@
     li {
         margin: 5px 0;
     }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        .header-container {
+            flex-direction: column; /* Stack items on smaller screens */
+            align-items: flex-start; /* Align items to the start */
+        }
+
+        h1 {
+            font-size: 18px; /* Adjust heading size */
+        }
+
+        .nav-button {
+            margin-bottom: 10px; /* Adjust button margin */
+        }
+
+        .content {
+            margin: 10px; /* Reduce margin on smaller screens */
+        }
+
+        ul, ol {
+            text-align: left; /* Align lists to the left on mobile */
+        }
+    }
+
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 16px; /* Further reduce heading size */
+        }
+
+        h2 {
+            font-size: 18px; /* Adjust h2 size */
+        }
+
+        p {
+            font-size: 14px; /* Adjust paragraph size */
+        }
+    }
 </style>
 
 <div id="main" onclick="w3_close()">
@@ -64,7 +102,7 @@
     </div>
 
     <div class="content" style="text-align: center; margin: 20px;">
-        <img src="image/uclogo.png" alt="University Logo" style="max-width: 200px; margin-bottom: 20px;">
+        <img src="image/uclogo.png" alt="University Logo">
 
         <h2>VISION</h2>
         <p>Democratize quality education.<br>
