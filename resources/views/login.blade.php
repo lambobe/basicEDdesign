@@ -279,7 +279,7 @@
     <!-- Pop-out Image -->
     <img id="popoutImage" src="image/jose1.png" alt="Pop-out Image">
     <!-- Pop-out Text -->
-    <div id="popoutText">Merry Christmas!</div>
+    <div id="popoutText">Merry Christmas po!</div>
 
     <div class="container">
         <div class="row justify-content-center">
