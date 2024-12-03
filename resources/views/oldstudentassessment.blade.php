@@ -16,12 +16,28 @@
     }
 
     .w3-container h1 {
-        margin-bottom: 1.5rem;
-        text-align: center;
-        margin-left:-80%;
-   
+    color: black; /* Change to black */
+    text-align: center; /* Center align */
+}
+    .header-container {
+        display: flex; 
+        align-items: center; 
+        background-color: rgba(8, 16, 66, 1); 
+        color:white;
+        padding: 10px; 
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
+}
+    .form-container {
+    background: white; /* Keep white background */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px; /* Add margin for spacing */
+    }
+
+    .header-container h1{
         
-        
+        font-size:24px;
     }
 
     .form-group {
@@ -95,14 +111,14 @@
             font-size: 18px; /* Adjust heading size */
         }
     }
+   
 </style>
 
-<div id="main">
-    <div class="w3-teal">
-        <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
-        <div class="w3-container">
-            <h1>ASSESSMENTS</h1>
-        </div>
+<div id="main" onclick="w3_close()">
+    <div class="header-container">
+        <button id="openNav" class="w3-button w3-xlarge nav-button" onclick="w3_open(event)">&#9776;</button>
+            <h1>Assessment</h1>
+       
     </div>
 
     <div class="container d-flex justify-content-center align-items-start" style="min-height: 80vh;">
@@ -147,8 +163,15 @@
         </div>
     </div>
 </div>
-
+@include('templates.oldstudentfooter')
 <script>
+    function w3_open(event) {
+    event.stopPropagation();
+    document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
 </script>
 
-@include('templates.oldstudentfooter')

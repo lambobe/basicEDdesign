@@ -16,9 +16,11 @@
             background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 70%, #001f3f 100%);
             margin: 0;
             padding: 0;
-            height: 100vh;
+        
             overflow: hidden;
             background-color: #0c76e0;
+            background-size:cover;
+            min-height:200vh;
             position: relative;
         }
 
@@ -27,7 +29,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 100vh;
             overflow: hidden;
         }
 
@@ -63,21 +65,20 @@
 
         .container {
             position: absolute;
-            top: 50%;
+            top: 25%;
             left: 45%; /* Center horizontally */
             transform: translate(-50%, -50%);
             z-index: 1;
-            width: 100%;
+            width: 90%;
             max-width: 450px; /* Maximum width for larger screens */
-            padding: 0 20px; /* Padding for small screens */
+            padding: 0 2px; /* Padding for small screens */
         }
 
         .card {
             background-color: white;
             border-radius: 10px;
             padding: 1.5rem; /* Adjusted padding for better fit */
-            width: 200%; /* Full width of the container */
-            height: auto; /* Set to auto for dynamic height based on content */
+            width:400px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
             position: relative;
@@ -141,9 +142,9 @@
 
         .hat {
             position: absolute;
-            top: -80px;
-            right: -22%;
-            width: 240px;
+            top: -75px;
+            right: -20%;
+            width: 230px;
             transform: rotate(14deg);
         }
 
@@ -218,51 +219,49 @@
             width: 100%; /* Ensure button takes full width */
         }
 
-        /* Media Queries for Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                width: 90%; /* Take up more width on smaller screens */
-                padding: 0; /* Remove extra padding */
-            }
+      
 
-            .card {
-                padding: 1rem; /* Adjust padding for smaller screens */
+        @media (max-width: 480px) {
+            .container {
+                width: 60%; /* Increase container width for mobile */
+                height:10%;
+                top:15%;
             }
 
             .logo img {
-                width: 100px; /* Smaller logo for mobile */
+                width: 60px; /* Further decrease logo size for mobile */
+            }
+            .santa-gif{
+                width:20%;
+            }
+      
+         
+        }
+       
+    
+        /*laptop*/
+     
+        @media (max-width: 1199px) {
+            .container {
+                width: 20%;
+                height:10%;
+                top:25%;
+                left:32%;
+            }
+            .logo img {
+                width: 100px; 
             }
 
-            /* Hide music controls and pop-out elements on mobile */
-            #musicControls,
-            #popoutImage,
-            #popoutText {
-                display: none; /* Hide these elements */
+            #musicControls {
+                top: 3%; 
+                right: 6%;
             }
         }
-
-        @media (max-width: 480px) {
-            .hat {
-                width: 150px; /* Adjust hat size for mobile */
-            }
-
-            .santa-gif {
-                width: 300px; /* Adjust Santa gif size for mobile */
-            }
-
-            #popoutImage {
-                width: 100px; /* Smaller pop-out image */
-            }
-
-            #popoutText {
-                font-size: 16px; /* Smaller text for mobile */
-            }
-        }
+     
     </style>
 </head>
 
 <body>
-    
     <audio id="backgroundMusic" autoplay loop muted>
         <source src="music/jinglebells.mp3" type="audio/mpeg">
         Your browser does not support the audio element.

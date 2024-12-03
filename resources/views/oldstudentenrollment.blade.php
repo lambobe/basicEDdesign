@@ -15,9 +15,10 @@
     .header-container {
         display: flex; 
         align-items: center; 
-        background-color: #0c3b6d; /* Match dashboard header color */
+        background-color: rgba(8, 16, 66, 1); 
         color: white;
-        padding: 10px; /* Match dashboard padding */
+        padding: 10px; 
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
     }
 
     h1 {
@@ -100,7 +101,7 @@
     }
 </style>
 
-<div id="main">
+<div id="main" onclick="w3_close()">
     <div class="header-container">
         <button id="openNav" class="w3-button w3-xlarge nav-button" onclick="w3_open(event)">&#9776;</button>
         <h1>Student Enrollment</h1>
@@ -287,6 +288,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti/dist/confetti.browser.min.js"></script>
 
+@include('templates.oldstudentfooter')
 <script>
     let confettiLaunched = false;
 
@@ -317,6 +319,13 @@
             requestAnimationFrame(frame);
         })();
     }
+    function w3_open(event) {
+        event.stopPropagation();
+        document.getElementById("mySidebar").style.display = "block";
+    }
+
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+    }
 </script>
 
-@include('templates.oldstudentfooter')

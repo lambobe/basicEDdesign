@@ -14,13 +14,32 @@
 
     <style>
         .w3-sidebar {
-            background-color: #0c3b6d; /* Sidebar background color */
-            color: white; /* Default text color */
-            width: 250px; /* Fixed width */
-            transition: width 0.3s; /* Smooth transition for width */
-            overflow-y: auto; /* Enable scrolling if content exceeds height */
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Shadow effect for the sidebar */
-        }
+        background-image: url('image/ucbuild.png'); /* Background image */
+        background-size: cover; /* Cover the entire sidebar */
+        background-position: center; /* Center the image */
+        position: relative; /* Required for the pseudo-element */
+        color: white; /* Default text color */
+        width: 250px; /* Fixed width */
+        transition: width 0.3s; /* Smooth transition for width */
+        overflow-y: auto; /* Enable scrolling if content exceeds height */
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Shadow effect for the sidebar */
+    }
+
+    .w3-sidebar::after {
+        content: ""; /* Create a pseudo-element */
+        position: absolute; /* Position it absolutely */
+        top: 0; /* Position at the top */
+        left: 0; /* Position at the left */
+        right: 0; /* Stretch to the right */
+        bottom: 0; /* Stretch to the bottom */
+        background-color: rgba(8,16,66,0.9); /* Dark overlay */
+        z-index: 1; /* Ensure it sits above the background image */
+    }
+
+    .profile-section, .w3-bar-item {
+        position: relative; /* Position relative to the sidebar */
+        z-index: 2; /* Ensure text items are above the overlay */
+    }
 
         .profile-section {
             display: flex;
