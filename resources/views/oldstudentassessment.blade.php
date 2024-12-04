@@ -17,6 +17,7 @@
 <style>
     body {
         background-color: #f8f9fa;
+        font-family: Arial, sans-serif;
     }
 
     .form-container {
@@ -50,7 +51,7 @@
 
     .header-container h1{
             margin-top: 1%; 
-            font-family: 'Arial', sans-serif;
+    
             font-size: 17px;
     }
 
@@ -203,8 +204,8 @@
             background-color: #0004d6;
         }
         .w3-bar-item.active {
-            background-color: white; /* Background color for active link */
-            color: black; /* Text color for active link */
+        background-color: rgba(240, 252, 126); /* Background color for active link */
+        color: rgba(3, 5, 74); /* Text color for active link */
         }
         .profile-section a {
             text-decoration: none; /* No underline */
@@ -222,7 +223,7 @@
             text-transform: uppercase;
         }
         .w3-bar-item.w3-button.w3-large{
-            top:-420px;
+            top:-550px;
             left:185px;
             border-radius: 20%; /* Make it round */
             width: 20px; /* Adjust width as needed */
@@ -230,6 +231,9 @@
             display: flex; /* Center the content */
             align-items: center; /* Center vertically */
             justify-content: center; /* Center horizontally */
+        }
+        .signout{
+            margin-top:150px;
         }
      
 </style>
@@ -272,12 +276,14 @@
                     <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5H0zm11.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM0 11v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1z" />
                 </svg> Assessment
             </a>
+            <div class="signout">
             <a href="/logout" class="w3-bar-item w3-button">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z" />
                     <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
                 </svg> Sign Out
             </a>
+    </div>
             <button class="w3-bar-item w3-button w3-large" onclick="w3_close()"> &times;</button>
         </h5>
     </div>
