@@ -49,8 +49,9 @@
     }
 
     .header-container h1{
-        
-        font-size:24px;
+            margin-top: 1%; 
+            font-family: 'Arial', sans-serif;
+            font-size: 17px;
     }
 
     .form-group {
@@ -175,7 +176,8 @@
             text-decoration: none;
             transition: color 0.3s; /* Only transition color */
             border-radius: 5px;
-            margin: 15px 2px;
+            margin-right:15px;
+            margin-top:15px;
             font-size: 14px; /* Adjusted font size */
         }
 
@@ -206,20 +208,30 @@
         }
         .profile-section a {
             text-decoration: none; /* No underline */
-            color: white; /* Match text color */
+            color: rgba(203, 209, 208); /* Match text color */
             margin-top: 5px; /* Space above the link */
             font-size: 12px;
         }
 
         .profile-section a:hover {
-            color: #007bff; /* Change color on hover */
+            color: white; /* Change color on hover */
         }
 
         .profile-name {
             font-size: 13px;
             text-transform: uppercase;
         }
-
+        .w3-bar-item.w3-button.w3-large{
+            top:-420px;
+            left:185px;
+            border-radius: 20%; /* Make it round */
+            width: 20px; /* Adjust width as needed */
+            height: 20px; /* Adjust height as needed */
+            display: flex; /* Center the content */
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+        }
+     
 </style>
 
 <body>
@@ -266,7 +278,7 @@
                     <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
                 </svg> Sign Out
             </a>
-       
+            <button class="w3-bar-item w3-button w3-large" onclick="w3_close()"> &times;</button>
         </h5>
     </div>
 <div id="main" onclick="w3_close()">

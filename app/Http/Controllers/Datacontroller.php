@@ -250,7 +250,7 @@ public function address_contactpost(Request $request)
         'password' => 'required|min:8',
     ]);
 
-    // Create the user
+    // Create the userge
     $user = User::create([
         'firstname' => $validateData['firstname'],
         'lastname' => $validateData['lastname'],
