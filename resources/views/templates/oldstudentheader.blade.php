@@ -4,124 +4,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <title>Student Dashboard</title>
 
     <style>
         .w3-sidebar {
-            background-image: url('image/ucbuild.png'); /* Background image */
-            background-size: cover; /* Cover the entire sidebar */
-            background-position: center; /* Center the image */
-            position: relative; /* Required for the pseudo-element */
-            color: white; /* Default text color */
-            width: 250px; /* Fixed width */
-            transition: width 0.3s; /* Smooth transition for width */
-            overflow-y: hidden; /* Enable scrolling if content exceeds height */
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Shadow effect for the sidebar */
-          
-        }
-        
-
-        .w3-sidebar::after {
-            content: ""; /* Create a pseudo-element */
-            position: absolute; /* Position it absolutely */
-            top: 0; /* Position at the top */
-            left: 0; /* Position at the left */
-            right: 0; /* Stretch to the right */
-            bottom: 0; /* Stretch to the bottom */
-            background-color: rgba(8, 16, 66, 0.9); /* Dark overlay */
-            z-index: 1; /* Ensure it sits above the background image */
-        }
-
-        .profile-section, .w3-bar-item {
-            position: relative; /* Position relative to the sidebar */
-            z-index: 2; /* Ensure text items are above the overlay */
-        }
-
-        .profile-section {
-            display: flex;
-            align-items: center;
-            padding: 6px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .profile-picture {
-            width: 50px; /* Adjust size as needed */
-            height: 58px; /* Adjust size as needed */
-            border-radius: 80%; /* Circular profile picture */
-            margin-right: 20px; /* Space between image and name */
-        }
-
-        .profile-name {
-            color: white; /* Name text color */
+            background-image: url('image/ucbuild.png');
+            background-size: cover;
+            background-position: center;
+            position: fixed;
+            color: white;
+            width: 220px;
+            transition: width 0.3s;
+            overflow-y: hidden;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
         }
 
         .w3-bar-item {
             display: flex;
             align-items: center;
-            padding: 2px 10px; /* Reduced padding for closer items */
+            padding: 10px;
             text-decoration: none;
-            color: white; /* White text */
-            transition: background-color 0.3s, color 0.3s; /* Smooth transition */
-            border-radius: 5px; /* Rounded corners */
-            margin: 0; /* Remove default margin */
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 5px;
         }
 
-        .w3-bar-item svg {
-            width: 20px; /* Set a smaller width */
-            height: 20px; /* Set a smaller height */
-            margin-right: 5px; /* Space between icon and text */
-            transition: fill 0.3s; /* Smooth transition for color changes */
+        .w3-bar-item.active {
+            background-color: white;
+            color: black;
         }
 
         .w3-bar-item:hover {
-            background-color: white; /* Background color on hover */
-            color: #007bff; /* Text color on hover */
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
+        .w3-sidebar::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(8, 16, 66, 0.9);
+            z-index: 1;
+        }
+
+        .profile-section,
+        .w3-bar-item {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column; /* Change to column layout */
+            align-items: center; /* Center align items */
+            padding: 6px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .profile-picture {
+            width: 50px;
+            height: 58px;
+            border-radius: 80%;
+            margin-bottom: 5px; /* Space below profile picture */
+            margin-top:10%;
+        }
+
+        .w3-bar-item {
+            display: flex;
+            align-items: center;
+            padding: 510x 10px; /* Add padding for better spacing */
+            text-decoration: none;
+            transition: color 0.3s; /* Only transition color */
+            border-radius: 5px;
+            margin-right: 10px;
+            margin-top: 15px;
+            font-size: 14px; /* Adjusted font size */
+         
+        }
+
+        .w3-bar-item svg {
+            width: 15px;
+            height: 15px;
+            margin-right: 20px; /* Increased space between icon and text */
+            transition: fill 0.5s;
+        }
+
+
         .w3-bar-item:hover svg {
-            fill: black; /* Change icon color on hover */
+            fill: black;
         }
 
         .w3-bar-item.w3-button {
-            color: rgb(255, 255, 255); /* Text color for close button */
-            border: none; /* No border */
-            border-radius: 5px; /* Rounded corners */
-            margin-bottom: 2px; /* Reduced space below the close button */
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 2px;
         }
 
         .w3-bar-item.w3-button:hover {
-            background-color: #0004d6; /* Darker close button on hover */
+            background-color: #0004d6;
         }
 
         .uc-logo-container {
-            position: relative; /* Ensure it is positioned correctly */
-            z-index: 2; /* Bring logo and text above the overlay */
-            text-align: center; /* Center the logo and text */
-            margin: 0px 0px; /* Add margin for spacing */
-            background-color:rgba(255, 244, 231, 1);
-            margin-top:40%;
-            padding:12px;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            margin: 0px 0px;
+            background-color: rgba(255, 244, 231, 1);
+            margin-top: 42%;
+            padding: 14px;
         }
 
         .uc-logo {
-            width: 130px; /* Adjust logo size */
-            height: auto; /* Maintain aspect ratio */
-            margin-top:5%;
+            width: 120px;
+            height: auto;
+            margin-top: 5%;
+            margin-bottom: 10px; /* Added margin below the logo */
         }
 
-        .uc-text {
-            color: black; /* Ensure text is visible */
-            font-size: 12px; /* Increase font size for better visibility */
-            margin-top: -50px; /* Space between logo and text */
-            z-index: 2; /* Ensure text is above overlay */
-            position: relative; /* Position context for z-index */
+        /* Remove underline from the link */
+        .profile-section a {
+            text-decoration: none; /* No underline */
+            color: rgba(203, 209, 208); /* Match text color */
+            margin-top: 1px; /* Space above the link */
+            font-size: 12px;
         }
+
+        .profile-section a:hover {
+            color: white; /* Change color on hover */
+        }
+
+        .profile-name {
+            font-size: 13px;
+            text-transform: Uppercase;
+          
+        }
+        .w3-bar-item.w3-button.w3-large{
+            top:-420px;
+            left:180px;
+            border-radius: 20%; /* Make it round */
+            width: 20px; /* Adjust width as needed */
+            height: 20px; /* Adjust height as needed */
+            display: flex; /* Center the content */
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+        }
+      
     </style>
 </head>
 
@@ -129,7 +163,8 @@
     <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
         <div class="profile-section">
             <img src="image/cler.jpg" alt="Profile Picture" class="profile-picture">
-            <span class="profile-name" style="margin-top:-4%; font-size: 15px;">{{ auth()->user()->firstname }}  {{ auth()->user()->lastname }}</span> 
+            <span class="profile-name">{{ auth()->user()->firstname }} {{ auth()->user()->lastname }}</span>
+            <a href="/#">View Profile</a>
         </div>
 
         <h5>
@@ -140,12 +175,7 @@
                     <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.707l.547.547 1.17-1.951a.5.5 0 1 1 .858.514" />
                 </svg> Home
             </a>
-            <a href="/#" class="w3-bar-item w3-button">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-video" viewBox="0 0 16 16">
-                    <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
-                    <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm10.798 11c-.453-1.27-1.76-3-4.798-3-3.037 0-4.345 1.73-4.798 3H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1z" />
-                </svg> Profile
-            </a>
+
             <a href="/oldstudentclassload" class="w3-bar-item w3-button">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
                     <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
@@ -173,12 +203,11 @@
                     <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
                 </svg> Logout
             </a>
-            <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
+            <button class="w3-bar-item w3-button w3-large" onclick="w3_close()"> &times;</button>
             
-            <div class="uc-logo-container">
+            <!-- <div class="uc-logo-container">
                 <img src="image/uclmlogo.png" alt="UC Logo" class="uc-logo">
-               
-            </div>
+            </div> -->
         </h5>
     </div>
 </body>
