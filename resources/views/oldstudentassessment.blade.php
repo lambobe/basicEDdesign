@@ -41,12 +41,21 @@
         padding: 10px; 
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
 }
-    .form-container {
-    background: white; /* Keep white background */
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin: 20px; /* Add margin for spacing */
+.form-container {
+        background: white;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        max-width: 100%; /* Set a max width for the form */
+        margin: 10px auto; /* Center the form with margin */
+    }
+    .text-center{
+        background-color:rgba(8, 16, 66, 1);
+        padding:10px;
+        color:white;
+        font-size: 24px;
+      
+      
     }
 
     .header-container h1{
@@ -294,7 +303,7 @@
        
     </div>
 
-    <div class="container d-flex justify-content-center align-items-start" style="min-height: 80vh;">
+    <div class="test" style="min-height: 80vh;">
         <div class="form-container">
             <h1 class="text-center">View Assessments</h1>
 

@@ -20,7 +20,8 @@
     .header-container {
         display: flex; 
         align-items: center; 
-        background-color: #0c3b6d; 
+        background-color: rgba(8, 16, 66, 1); 
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
         color: white;
         padding: 10px; 
     }
@@ -33,7 +34,7 @@
     h1 {
         margin: 0; 
         font-family: 'Arial', sans-serif;
-        font-size: 20px;
+        font-size: 17px;
     }
 
     .content {
@@ -205,8 +206,7 @@
         /* Responsive styles */
         @media (max-width: 768px) {
             .header-container {
-                flex-direction: column; /* Stack items on smaller screens */
-                align-items: flex-start; /* Align items to the start */
+                justify-content: flex-start; /* Align items to the start */
             }
 
             h1 {
@@ -214,7 +214,7 @@
             }
 
             .nav-button {
-                margin-bottom: 10px; /* Adjust button margin */
+                margin-right: 10px; /* Adjust margin for mobile */
             }
 
             .content {
@@ -300,7 +300,6 @@
         
         <button class="w3-bar-item w3-button w3-large" onclick="w3_close()"> &times;</button>
     </h5>
-  
     </div>
 <div id="main" onclick="w3_close()">
     <div class="header-container"> 
@@ -350,3 +349,5 @@
         document.getElementById("mySidebar").style.display = "none";
     }
 </script>
+</body>
+</html>
