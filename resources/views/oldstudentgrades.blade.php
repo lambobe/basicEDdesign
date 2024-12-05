@@ -137,17 +137,5 @@
         </div>
     @endif
 </div>
-<script>
-            function w3_open(event) {
-            event.stopPropagation();
-            document.getElementById("mySidebar").style.display = "block";
-         
-        }
-
-        function w3_close() {
-            document.getElementById("mySidebar").style.display = "none";
-            document.getElementById("main").style.marginLeft = "0";
-        }
-    </script>
 
 @include('templates.oldstudentfooter')

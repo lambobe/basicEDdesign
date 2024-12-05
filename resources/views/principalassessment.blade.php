@@ -7,22 +7,17 @@
     }
 
     #main {
-        max-width: 100%;
-        margin: 0 auto;
-        padding: 0;
-        background-color: white;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
+     padding:0;
     }
 
     .header-container {
-        display: flex;
-        align-items: center;
-        background-color: #0c3b6d; /* Header background color */
-        color: white;
-        padding: 10px;
-    }
-
+    display: flex;
+    align-items: center;
+    background-color: rgba(8, 16, 66, 1);
+    color: white;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
     .header-container h1 {
         margin: 0;
         font-size: 24px; /* Increased font size for visibility */
@@ -44,7 +39,7 @@
     }
 
     .table th {
-        background-color: #0c3b6d; /* Header background color */
+        background-color: rgba(8, 16, 66, 1); /* Header background color */
         color: white; /* Header text color */
         text-align: center; /* Center header text */
     }
@@ -82,21 +77,41 @@
             font-size: 20px; /* Adjust font size for mobile */
         }
     }
+    .header-container h1{
+        margin: 0; 
+        font-size: 20px;
+        text-align:left;
+        font-family: 'Arial', sans-serif;
+    }
+    .list{
+        background-color:rgba(8, 16, 66, 1);
+        margin-top:40px;
+        width:20%;
+       
+       
+    }
+    .list h2{
+        color:white;
+        font-family: 'Arial', sans-serif;
+        padding:10px;
+        font-size:16px;
+        text-align:center;
+    }
+
 </style>
 
-<div id="main">
+
     <div class="header-container">
         <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
         <h1>Assessments Overview</h1>
     </div>
-
-    <div class="row mb-3">
-        <div class="col">
-            <h2>List of Created Assessments</h2>
-        </div>
-    </div>
-
+    <div id="main" onclick="w3_close()">
+  
+    <div class="list">
+            <h2>List of created assessments</h2>
+            </div>
     <table class="table table-striped">
+        <div class="threads1">
         <thead>
             <tr>
                 <th>School Year</th>
@@ -110,6 +125,8 @@
                 <th>Actions</th>
             </tr>
         </thead>
+</div>
+      
         <tbody>
             @forelse($assessments as $assessment)
                 <tr>
@@ -139,5 +156,6 @@
         </tbody>
     </table>
 </div>
+
 
 @include('templates.principalfooter')

@@ -61,8 +61,18 @@
         <div class="personal-details">
             <form action="/studentdetails" method="POST">
                 @csrf
+                <div class="col-md-6">
+                        <label for="mother_contact" class="form-label">Learner Reference Number <span class="red-asterisk">*</span></label>
+                        <input type="text" class="form-control" id="lrn" name="lrn"
+                            pattern="\d*" title="Please enter numbers only"
+                            onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength="12"
+                            maxlength="12" placeholder="Max of 12 Numbers" required>
+                       
+                    </div>
+                    <br>
                 <div class="row g-3">
                     <div class="col-md-6">
+                   
                         <label for="firstname" class="form-label">First Name <span class="red-asterisk">*</span></label>
                         <input type="text" class="form-control" id="firstname" name="firstname" readonly
                             value="{{ auth()->user()->firstname }}">
