@@ -8,12 +8,14 @@
         padding: 0;
     }
 
+
     .header-container {
         display: flex; 
         align-items: center; 
-        background-color: #0c3b6d; 
+        background-color: rgba(8, 16, 66, 1); 
         color: white;
-        padding: 15px; 
+        padding: 10px; 
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);  
     }
 
     .w3-teal {
@@ -22,7 +24,7 @@
 
     h1 {
         margin: 0; 
-        font-size: 24px;
+        font-size: 17px;
     }
 
     .container {
@@ -83,14 +85,15 @@
     .btn-success:hover {
         background-color: #218838;
     }
+    
 </style>
 
-<div id="main">
+
     <div class="header-container">
         <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
         <h1>Student Pending Account</h1>
     </div>
-
+    <div id="main" onclick="w3_close()">
     <div class="container mt-4">
         <form action="/studentapplicant" method="POST">
             @csrf <!-- CSRF token for security -->

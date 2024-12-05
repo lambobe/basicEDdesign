@@ -11,9 +11,10 @@
     .header-container {
         display: flex; 
         align-items: center; 
-        background-color: #0c3b6d; 
+        background-color: rgba(8, 16, 66, 1); 
         color: white;
-        padding: 15px; 
+        padding: 10px; 
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);  
     }
 
     .w3-teal {
@@ -22,7 +23,9 @@
 
     h1 {
         margin: 0; 
-        font-size: 24px;
+        font-size: 17px;
+        font-family:'Arial', sans-serif;
+       
     }
 
     .container {
@@ -73,12 +76,12 @@
     }
 </style>
 
-<div id="main">
+
     <div class="header-container">
         <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
         <h1>Student Approved Account</h1>
     </div>
-
+    <div id="main" onclick="w3_close()">
     <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
         <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
         <a href="/principal" class="w3-bar-item w3-button">

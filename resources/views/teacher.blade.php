@@ -7,14 +7,14 @@
         margin: 0;
         padding: 0;
     }
-
     .header-container {
         display: flex; 
         align-items: center; 
-        background-color: #0c3b6d; 
-        color: white;
+        background-color: rgba(8, 16, 66, 1); 
+        color:white;
         padding: 10px; 
-    }
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
+            }
 
     .nav-button {
         margin-right: 15px; 
@@ -24,7 +24,7 @@
     h1 {
         margin: 0; 
         font-family: 'Arial', sans-serif;
-        font-size: 20px;
+        font-size: 17px;
     }
 
     .card {
@@ -106,7 +106,7 @@
     </ul>
 </div>
 
-<div id="main">
+
     <div class="header-container"> 
         <button id="openNav" class="w3-button w3-xlarge nav-button" onclick="w3_open(event)">&#9776;</button>
         <h1>Teacher Dashboard</h1>
@@ -114,7 +114,7 @@
             <label>{{ auth()->user()->firstname }}</label>
         </div>
     </div>
-
+    <div id="main" onclick="w3_close()">
     <div class="row">
         <div class="col-md-6">
             <div class="card">

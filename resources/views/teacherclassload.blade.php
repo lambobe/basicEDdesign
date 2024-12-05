@@ -8,17 +8,20 @@
         padding: 0;
     }
 
+
     .header-container {
         display: flex; 
         align-items: center; 
-        background-color: #0c3b6d; 
-        color: white;
+        background-color: rgba(8, 16, 66, 1); 
+        color:white;
         padding: 10px; 
-    }
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
+            }
 
     h1 {
         margin: 0; 
-        font-size: 20px;
+        font-size: 17px;
+        font-family:'Arial',sans-serif;
     }
 
     .container {
@@ -115,7 +118,7 @@
     }
 </style>
 
-<div id="mySidebar" class="sidebar">
+<!-- <div id="mySidebar" class="sidebar">
     <h2>Sidebar</h2>
     <ul>
         <li><a href="#">Dashboard</a></li>
@@ -124,16 +127,16 @@
         <li><a href="#">Settings</a></li>
         <li><a href="#" onclick="w3_close()">Close</a></li>
     </ul>
-</div>
+</div> -->
 
-<div id="main">
+
     <div class="header-container"> 
         <button id="openNav" class="w3-button w3-xlarge nav-button" onclick="w3_open()">&#9776;</button>
         <div class="w3-container">
             <h1>Teacher Submit Grades</h1>
         </div>
     </div>
-
+    <div id="main" onclick="w3_close()">
     <div class="container">
         <form action="/teacherclassload" method="GET">
             @csrf
@@ -194,15 +197,3 @@
 </div>
 
 @include('templates.teacherfooter')
-
-<script>
-    function w3_open() {
-        document.getElementById("mySidebar").style.display = "block";
-        document.getElementById("main").style.marginLeft = "250px"; // Adjust main content
-    }
-
-    function w3_close() {
-        document.getElementById("mySidebar").style.display = "none";
-        document.getElementById("main").style.marginLeft = "0"; // Reset main content
-    }
-</script>

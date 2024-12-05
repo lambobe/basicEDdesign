@@ -7,14 +7,14 @@
         margin: 0;
         padding: 0;
     }
-
     .header-container {
         display: flex; 
         align-items: center; 
-        background-color: #0c3b6d; 
-        color: white;
+        background-color: rgba(8, 16, 66, 1); 
+        color:white;
         padding: 10px; 
-    }
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
+            }
 
     #mySidebar {
         display: none;
@@ -55,30 +55,19 @@
         margin-top: 20px;
     }
     h1{
-        font-size:24px;
+        font-size:17px;
+        font-family:'Arial',sans-serif;
     }
 </style>
 
-<!-- Sidebar -->
-<div id="mySidebar" class="sidebar">
-    <h2>Sidebar</h2>
-    <ul>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Submit Grades</a></li>
-        <li><a href="#">View Attendance</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#" onclick="w3_close()">Close</a></li>
-    </ul>
-</div>
 
-<div id="main">
     <div class="header-container">
         <button id="openNav" class="w3-button w3-xlarge nav-button" onclick="w3_open()">&#9776;</button>
         <div class="w3-container" style="margin-left: 15px;">
             <h1 style="margin: 0;">Teacher Core Value</h1>
         </div>
     </div>
-
+    <div id="main" onclick="w3_close()">
     <div class="container" style="width: 80%; height: auto; border: 1px solid #ccc; padding: 20px;">
         <form action="/teachercorevalue" method="GET">
             @csrf

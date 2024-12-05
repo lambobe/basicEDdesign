@@ -8,14 +8,15 @@
         padding: 0;
     }
 
+   
     .header-container {
         display: flex; 
         align-items: center; 
-        background-color: #0c3b6d; 
-        color: white;
+        background-color: rgba(8, 16, 66, 1); 
+        color:white;
         padding: 10px; 
-    }
-
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
+            }
     #mySidebar {
         display: none;
         position: fixed;
@@ -55,7 +56,8 @@
         margin-top: 20px;
     }
     h1{
-        font-size:24px;
+        font-size:17px;
+        font-family:'Arial',sans-serif;
        
     }
 </style>
@@ -72,14 +74,14 @@
     </ul>
 </div>
 
-<div id="main">
+
     <div class="header-container">
         <button id="openNav" class="w3-button w3-xlarge nav-button" onclick="w3_open(event)">&#9776;</button>
         <div class="w3-container" style="margin-left: 15px;">
             <h1 style="margin: 0;">Teacher Attendance</h1>
         </div>
     </div>
-
+    <div id="main" onclick="w3_close()">
     <div class="container my-5">
         <form action="/teacherattendance" method="GET">
             @csrf
