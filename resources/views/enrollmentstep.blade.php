@@ -37,11 +37,13 @@
         flex-grow: 1; /* Allow header to take available space */
     }
 
-    h2 {
-        margin-bottom: 20px;
-        font-size: 1.75rem;
-        color: #333; /* Change to match dashboard subheading color */
-    }
+    h2{
+            background-color:rgba(8, 16, 66, 1);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            font-size:24px;
+            padding:10px;
+        }
 
     .list-group {
         border-radius: 0.5rem;

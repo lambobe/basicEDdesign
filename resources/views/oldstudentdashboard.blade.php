@@ -185,17 +185,18 @@
         .w3-bar-item.w3-button.w3-large{
             top:-550px;
             left:185px;
-            border-radius: 20%; /* Make it round */
-            width: 20px; /* Adjust width as needed */
-            height: 20px; /* Adjust height as needed */
+            width: 30px; /* Adjust width as needed */
+            border-radius:0;
+            height: 30px; /* Adjust height as needed */
             display: flex; /* Center the content */
             align-items: center; /* Center vertically */
             justify-content: center; /* Center horizontally */
+       
         }
         .signout{
             margin-top:150px;
         }
-        /* Responsive styles */
+      
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column; /* Stack items on smaller screens */

@@ -185,9 +185,7 @@
             margin-bottom: 2px;
         }
 
-        .w3-bar-item.w3-button:hover {
-            background-color: #0004d6;
-        }
+ 
         .w3-bar-item.active {
         background-color: rgba(240, 252, 126); /* Background color for active link */
         color: rgba(3, 5, 74); /* Text color for active link */
@@ -219,6 +217,13 @@
         }
         .signout{
             margin-top:150px;
+        }
+        h2{
+            background-color:rgba(8, 16, 66, 1);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            font-size:24px;
+            padding:10px;
         }
 </style>
 <body>
