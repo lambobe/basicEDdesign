@@ -272,7 +272,8 @@
 }
 
 .w3-bar-item.w3-button.w3-large {
-    top: -600px;
+    top: 0px;
+    position:fixed;
     left: 185px;
     width: 30px;
     border-radius: 0;

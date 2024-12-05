@@ -157,7 +157,7 @@
 }
 
 .w3-bar-item.w3-button.w3-large {
-    top: -600px;
+    top: 0px;
     left: 185px;
     width: 30px;
     border-radius: 0;
@@ -165,6 +165,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position:fixed;
 }
 
 .signout {

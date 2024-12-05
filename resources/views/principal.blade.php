@@ -205,8 +205,9 @@ h1 {
 }
 
 .w3-bar-item.w3-button.w3-large {
-    top: -600px;
+    top: 0px;
     left: 185px;
+    position:fixed;
     width: 30px;
     border-radius: 0;
     height: 30px;
