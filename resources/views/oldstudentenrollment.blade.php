@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
+
 <style>
     body {
         background-color: white; /* Change to match dashboard */
@@ -32,6 +33,7 @@
         padding: 10px; 
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
     }
+
 
     h1 {
         font-size: 17px; /* Adjusted to match dashboard */
@@ -93,8 +95,8 @@
 
     /* Button styling */
     .btn-primary {
-        background-color: #0c3b6d; /* Change to match primary color */
-        border-color: #0c3b6d;
+        background-color: #007bff;
+        border-color: #007bff;
     }
 
     /* Responsive adjustments */
@@ -226,6 +228,7 @@
             padding:10px;
         }
 </style>
+
 <body>
 <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
         <div class="profile-section">
@@ -276,12 +279,13 @@
         </h5>
     </div>
 <div id="main" onclick="w3_close()">
-    <div class="header-container">
+    <div class="header-container ">
         <button id="openNav" class="w3-button w3-xlarge nav-button" onclick="w3_open(event)">&#9776;</button>
-        <h1>Student Enrollment</h1>
+        <h1 style="text-align: center; margin: 20px 0;">Student Enrollment</h1>
     </div>
     
     <section class="container my-5">
+
         <div class="row">
             <div class="col-12">
                 <h2>Enrollment Steps</h2>
@@ -312,45 +316,45 @@
                                 <p>Provided detailed student information.</p>
                             </div>
                             <div>
-                                @if ($studentDetail)
-                                    @if ($studentDetail->status === 'approved')
-                                        <span class="badge bg-success rounded-pill">Completed</span>
-                                    @else
-                                        <a href="{{ route('oldstudentupdatedetails.id', ['id' => $studentDetail->details_id]) }}" 
-                                        class="btn btn-primary mt-3 rounded-pill updateInfoBtn">
-                                        Confirm Information
-                                        </a>
-                                    @endif
+                            @if ($studentDetail)
+                                @if ($studentDetail->status === 'approved')
+                                    <span class="badge bg-success rounded-pill">Completed</span>
                                 @else
-                                    <span>No student details found.</span>
+                                    <a href="{{ route('oldstudentupdatedetails.id', ['id' => $studentDetail->details_id]) }}" 
+                                    class="btn btn-primary mt-3 rounded-pill updateInfoBtn">
+                                    Confirm Information
+                                    </a>
                                 @endif
+                            @else
+                                <span>No student details found.</span>
+                            @endif
                             </div>
                         </li>
 
                         @php
                         $address = \App\Models\address::where('address_id', $registerForm->id)->first();
-                        @endphp
-                        
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                            <div class="ms-2 me-auto">
-                                <div class="fw-bold">Address and Contact Details</div>
-                                <p>Provided student's address and contact information.</p>
-                            </div>
-                            <div>
-                                @if ($address)  
-                                    @if ($address->status === 'approved')  
-                                        <span class="badge bg-success rounded-pill">Completed</span>
-                                    @else
-                                        <a href="{{ route('oldstudentupdateaddress.id', ['id' => $studentDetail->details_id]) }}" 
-                                        class="btn btn-primary mt-3 rounded-pill updateInfoBtn">
-                                        Confirm Information
-                                        </a>
-                                    @endif
+                    @endphp
+                    
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Address and Contact Details</div>
+                            <p>Provided student's address and contact information.</p>
+                        </div>
+                        <div>
+                            @if ($address)  
+                                @if ($address->status === 'approved')  
+                                    <span class="badge bg-success rounded-pill">Completed</span>
                                 @else
-                                    <span>No address details found.</span>  
+                                    <a href="{{ route('oldstudentupdateaddress.id', ['id' => $studentDetail->details_id]) }}" 
+                                    class="btn btn-primary mt-3 rounded-pill updateInfoBtn">
+                                    Confirm Information
+                                    </a>
                                 @endif
-                            </div>
-                        </li>
+                            @else
+                                <span>No address details found.</span>  
+                            @endif
+                        </div>
+                    </li>
 
                         @php
                             $previousSchool = \App\Models\previous_school::where('school_id', $registerForm->id)->first();
@@ -388,7 +392,7 @@
                                 @else
                                 <a href="/oldstudentupdatedocuments"
                                     class="btn btn-primary mt-3 rounded-pill updateInfoBtn">
-                                    Confirm Information
+                                    Upload Required Documents
                                 </a>
                                 @endif
                             </div>
@@ -462,15 +466,15 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti/dist/confetti.browser.min.js"></script>
 
-
 <script>
-    let confettiLaunched = false;
 
-    const allCompleted = @json($allCompleted);
-    if (allCompleted && !confettiLaunched) {
-        launchConfetti();
-        confettiLaunched = true; 
-    }
+let confettiLaunched = false;
+
+const allCompleted = @json($allCompleted);
+        if (allCompleted && !confettiLaunched) {
+            launchConfetti();
+            confettiLaunched = true; 
+        }
 
     function launchConfetti() {
         const duration = 1 * 1000; 
@@ -494,13 +498,15 @@
         })();
     }
     function w3_open(event) {
-        event.stopPropagation();
-        document.getElementById("mySidebar").style.display = "block";
-    }
+            event.stopPropagation();
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("main").style.marginLeft = "220px";
+        }
 
-    function w3_close() {
-        document.getElementById("mySidebar").style.display = "none";
-    }
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("main").style.marginLeft = "0";
+        }
 </script>
 
 </body>

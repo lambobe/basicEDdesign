@@ -406,14 +406,16 @@
 </div>
 
 <script>
-    function w3_open(event) {
-        event.stopPropagation();
-        document.getElementById("mySidebar").style.display = "block";
-    }
+             function w3_open(event) {
+            event.stopPropagation();
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("main").style.marginLeft = "220px";
+        }
 
-    function w3_close() {
-        document.getElementById("mySidebar").style.display = "none";
-    }
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("main").style.marginLeft = "0";
+        }
 </script>
 </body>
 </html>

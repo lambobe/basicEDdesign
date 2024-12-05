@@ -1,35 +1,6 @@
 @include('templates.principalheader')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <style>
-    body {
-        background-color: #f4f4f4; /* Consistent background color */
-        font-family: Arial, sans-serif; /* Consistent font */
-    }
-
-    #main {
-        max-width: 100%;
-        margin: 0 auto;
-        padding: 0;
-        background-color: white;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-    }
-
-    .header-container {
-        display: flex;
-        align-items: center;
-        background-color: #0c3b6d; /* Header background color */
-        color: white;
-        padding: 10px;
-    }
-
-    .header-container h1 {
-        margin: 0;
-        font-size: 20px; /* Increased font size for visibility */
-        flex-grow: 1; /* Allow header to take available space */
-        text-align: left; /* Center the header text */
-    }
-
     .center {
         text-align: center;
         margin-top: 1rem;
@@ -64,60 +35,14 @@
         padding: 0.5rem;
         box-sizing: border-box;
     }
-
-    h1 {
-        color: white; /* Teal color for main heading */
-        margin-top: 20px; /* Margin above main heading */
-    }
-
-    .form-control {
-        border-radius: 5px; /* Rounded corners for inputs */
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    }
-
-    .btn {
-        padding: 10px 15px; /* Increased button padding */
-        border-radius: 5px; /* Rounded corners for buttons */
-        transition: background-color 0.3s; /* Smooth transition for hover effect */
-    }
-
-    .btn-primary {
-        background-color: #00796b; /* Primary button color */
-        color: white; /* Primary button text color */
-    }
-
-    .btn-primary:hover {
-        background-color: #005f56; /* Darker shade on hover */
-    }
-
-    .table {
-        width: 100%; /* Full width for table */
-        margin: 20px 0; /* Margin above and below table */
-        border-radius: 8px; /* Rounded corners for table */
-        overflow: hidden; /* Hide overflow for rounded corners */
-    }
-
-    .table th {
-        background-color: #0c3b6d; /* Header background color */
-        color: white; /* Header text color */
-        text-align: center; /* Center header text */
-    }
-
-    .table td {
-        text-align: center; /* Center table data */
-    }
-
-    @media (max-width: 768px) {
-        .header-container h1 {
-            font-size: 20px; /* Adjust font size for mobile */
-        }
-    }
 </style>
 
 <div id="main">
-    <div class="header-container">
-        <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
-        <h1>Classload for {{ $selectedSection }} Grade{{ $selectedGrade }}</h1>
+    <div class="w3-teal">
+        <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+        <div class="w3-container">
+            <h1>Classload for {{ $selectedSection }} Grade: {{ $selectedGrade }}</h1>
+        </div>
     </div>
 
     <div class="container">
