@@ -9,40 +9,54 @@
     </div>
 
     @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeachd
-        </ul>
-    </div>
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
     @endif
 
     <div class="container" style="width: 80%; height: auto; border: 1px solid #ccc; padding: 20px;">
-        <form action="{{ route('teachercorevaluesubmit') }}" method="POST">
+        <form action="/teachercorevalue" method="POST"> 
             @csrf
-            <input type="hidden" name="student_id" value="{{ old('payment_id', $paymentForm->payment_id ?? '') }}">
-            <input type="hidden" name="fullname" value="{{ old('fullname', $fullName) }}">
-            <input type="hidden" name="section" value="{{ old('section', $assign->section) }}">
+            @foreach ($students as $index => $studentDetail)
+                <input type="hidden" name="grade_level[]" value="{{ old('grade_level.' . $index, $studentDetail['grade_level']) }}">
+                <input type="hidden" name="fullname[]" value="{{ old('fullname.' . $index, "{$studentDetail['student']->firstname} {$studentDetail['student']->middlename} {$studentDetail['student']->lastname}") }}">
+                <input type="hidden" name="section[]" value="{{ old('section.' . $index, $studentDetail['section']) }}">
+                <input type="hidden" name="core_id[]" value="{{ old('core_id.' . $index, $studentClassIds[$studentDetail['student']->id] ?? 'N/A') }}">
+            @endforeach
 
-            <!-- Core Values Table -->
             <div class="fee-list">
                 <h4>STUDENT CORE VALUES</h4>
                 <div class="table-responsive">
                     <table class="table table-striped" id="core-values-table">
                         <thead>
                             <tr>
-                                <th>Core Value</th>
-                                <th>Input</th>
+                                <th>Fullname</th>
+                                <th>Section</th>
+                                <th>Grade Level</th>
+                                <th>Respect</th>
+                                <th>Excellence</th>
+                                <th>Teamwork</th>
+                                <th>Innovation</th>
+                                <th>Sustainability</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (['respect', 'excellence', 'teamwork', 'innovation', 'sustainability'] as $coreValue)
+                            @foreach ($students as $studentDetail)
                                 <tr>
-                                    <td>{{ strtoupper($coreValue) }}</td>
-                                    <td>
-                                        <input type="text" class="form-control" name="{{ $coreValue }}" value="{{ old($coreValue) }}" required>
-                                    </td>
+                                    <td>{{ $studentDetail['student']->firstname }} {{ $studentDetail['student']->middlename }} {{ $studentDetail['student']->lastname }}</td>
+                                    <td>{{ $studentDetail['section'] }}</td> 
+                                    <td>{{ $studentDetail['grade_level'] ?? 'N/A' }}</td>
+                                    @foreach (['respect', 'excellence', 'teamwork', 'innovation', 'sustainability'] as $coreValue)
+                                        <td>
+                                            <input type="text" class="form-control" name="core_values[{{ $studentDetail['student']->id }}][{{ $coreValue }}]" 
+                                                   value="{{ old('core_values.' . $studentDetail['student']->id . '.' . $coreValue, '') }}" 
+                                                   required {{ $errors->any() ? 'readonly' : '' }}>
+                                        </td>
+                                    @endforeach
                                 </tr>
                             @endforeach
                         </tbody>
@@ -50,7 +64,7 @@
                 </div>
             </div>
 
-            <div class="text-center">
+            <div class="hidden-center">
                 <button type="submit" name="submit" class="btn btn-danger btn-lg">Submit Core Values</button>
             </div>
         </form>

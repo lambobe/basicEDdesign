@@ -10,13 +10,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<div id="main">
-    <div class="w3-teal">
-        <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
-        <div class="w3-container">
-            <h1 class="text-center text-light">Student Profile</h1>
-        </div>
-    </div>
 
     <style>
         .card {
@@ -24,7 +17,14 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
         }
-
+        .header-container {
+        display: flex; 
+        align-items: center; 
+        background-color: rgba(8, 16, 66, 1); 
+        color:white;
+        padding: 10px; 
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
+            }
         .card:hover {
             transform: translateY(-5px);
         }
@@ -57,8 +57,19 @@
         .btn-primary:hover {
             background-color: #0056b3;
         }
+        h1{
+            font-size:17px;
+            margin-top:10px;
+        }
     </style>
 
+    <div class="header-container">
+        <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
+        <div class="w3-container">
+            <h1 class="text-center text-light">Student Profile</h1>
+        </div>
+    </div>
+    <div id="main" onclick="w3_close()">
     <section class="container-fluid py-5 bg-custom">
         <div class="row justify-content-center">
             <div class="col-md-9 col-lg-7 col-xl-6">

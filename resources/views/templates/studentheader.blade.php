@@ -187,7 +187,7 @@
         <div class="profile-section">
             <img src="image/cler.jpg" alt="Profile Picture" class="profile-picture">
             <span class="profile-name">{{ auth()->user()->firstname }} {{ auth()->user()->lastname }}</span>
-            <a href="/#">View Profile</a>
+            <a href="/studentprofile">View Profile</a>
         </div>
 
         <h5>

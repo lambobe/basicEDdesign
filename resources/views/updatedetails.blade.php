@@ -27,12 +27,14 @@
          }
 
          h1 {
-             text-align: center;
+             text-align: left;
+             font-size:40px;
              margin-bottom: 20px;
+             color:rgba(8, 16, 66, 1);
          }
 
          h4 {
-             text-align: center;
+             text-align: left;
              margin-bottom: 30px;
              font-weight: 300;
              color: #6c757d;
