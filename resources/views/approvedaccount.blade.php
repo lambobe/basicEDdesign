@@ -156,7 +156,6 @@
         </div>
     </div>
 </div>
-
 <script>
     document.getElementById('searchInput').addEventListener('keyup', function() {
         const query = this.value.toLowerCase();
